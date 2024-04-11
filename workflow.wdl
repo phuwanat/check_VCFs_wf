@@ -20,7 +20,7 @@ workflow check_VCFs {
 	}
 
     output {
-        Array[File] report.file = run_checking.out_file
+        Array[File] report_files = run_checking.out_files
     }
 
 }
@@ -40,7 +40,7 @@ task run_checking {
     >>>
 
     output {
-        File report.files = glob("*.check.*")
+        File out_files = glob("*.check.*")
     }
 
     runtime {
