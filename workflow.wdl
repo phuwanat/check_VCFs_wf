@@ -36,7 +36,7 @@ task run_checking {
     }
     
     command <<<
-	python checkVCF.py -r ~{ref_fa} -o ~{out_name} ~{vcf}
+	python /checkVCF/checkVCF.py -r ~{ref_fa} -o ~{out_name} ~{vcf}
     >>>
 
     output {
@@ -47,7 +47,7 @@ task run_checking {
         memory: memSizeGB + " GB"
         cpu: threadCount
         disks: "local-disk " + diskSizeGB + " SSD"
-        docker: "python@sha256:4e98ebe9359684d858cf40c98b77dbfd0e829a67bec1322f2d9b1d68df44afef"   # digest: quay.io/biocontainers/bcftools:1.16--hfe4b78e_1
+        docker: "phuwanat/checkvcf:v1"   # digest: quay.io/biocontainers/bcftools:1.16--hfe4b78e_1
         preemptible: 2
     }
 
