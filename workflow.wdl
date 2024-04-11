@@ -47,7 +47,7 @@ task run_checking {
         memory: memSizeGB + " GB"
         cpu: threadCount
         disks: "local-disk " + diskSizeGB + " SSD"
-        docker: "phuwanat/checkvcf:v1"   # digest: quay.io/biocontainers/bcftools:1.16--hfe4b78e_1
+        docker: "phuwanat/checkvcf:v2"   # digest: quay.io/biocontainers/bcftools:1.16--hfe4b78e_1
         preemptible: 2
     }
 
