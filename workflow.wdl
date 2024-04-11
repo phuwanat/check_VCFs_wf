@@ -42,7 +42,7 @@ task run_checking {
     >>>
 
     output {
-        File out_files = glob("*.check.*")
+        Array[File] out_files = glob("*.check.*")
     }
 
     runtime {
