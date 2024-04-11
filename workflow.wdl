@@ -21,7 +21,7 @@ workflow check_VCFs {
 	}
 
     output {
-        Array[File] report_files = run_checking.out_files
+        Array[Array[File]] report_files = run_checking.out_files
     }
 
 }
