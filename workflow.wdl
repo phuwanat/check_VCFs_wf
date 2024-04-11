@@ -31,7 +31,7 @@ task run_checking {
         File ref_fa
         Int memSizeGB = 8
         Int threadCount = 2
-        Int diskSizeGB = 2*round(size(vcf, "GB"))
+        Int diskSizeGB = 2*round(size(vcf, "GB")) + 10
 	String out_name = basename(vcf, ".vcf.gz")
     }
     
