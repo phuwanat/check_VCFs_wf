@@ -11,11 +11,12 @@ workflow check_VCFs {
      input {
         Array[File] vcf_files
         File ref_fa
+        File ref_fai
     }
 
     scatter(this_file in vcf_files) {
 		call run_checking { 
-			input: vcf = this_file, ref_fa = ref_fa
+			input: vcf = this_file, ref_fa = ref_fa, ref_fai = ref_fai
 		}
 	}
 
@@ -29,6 +30,7 @@ task run_checking {
     input {
         File vcf
         File ref_fa
+        File ref_fai
         Int memSizeGB = 8
         Int threadCount = 2
         Int diskSizeGB = 2*round(size(vcf, "GB")) + 10
